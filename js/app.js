@@ -106,18 +106,18 @@ document.addEventListener('change', function(e) {
         }
         lineUp(team1);
         lineUp(team2);
-    }
-    
-    if (team2.classList.contains("hide")) {
-        document.querySelector('#hide1').parentNode.style.display = "none";
-        document.querySelector('#hide2').parentNode.style.display = "block";
-    } 
-    else if (team1.classList.contains("hide")) {    
-        document.querySelector('#hide2').parentNode.style.display = "none";
-        document.querySelector('#hide1').parentNode.style.display = "block";
-    } else {
-        document.querySelector('#hide2').parentNode.style.display = "block";
-        document.querySelector('#hide1').parentNode.style.display = "block";
+
+        if (team2.classList.contains("hide")) {
+            document.querySelector('#hide1').parentNode.style.display = "none";
+            document.querySelector('#hide2').parentNode.style.display = "block";
+        } 
+        else if (team1.classList.contains("hide")) {    
+            document.querySelector('#hide2').parentNode.style.display = "none";
+            document.querySelector('#hide1').parentNode.style.display = "block";
+        } else {
+            document.querySelector('#hide2').parentNode.style.display = "block";
+            document.querySelector('#hide1').parentNode.style.display = "block";
+        }
     }
 });
 

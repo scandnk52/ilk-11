@@ -12,8 +12,8 @@ body {
 }
 
 .field {
-    width: 1000px;
-    height: 796px;
+    width: 880px;
+    height: 700px;
     background-image: url('../img/field.png');
     background-size: cover;
     position: relative;
@@ -74,7 +74,7 @@ body {
     background-color: #ffffff;
     border-radius: 50%;
     padding: 3px;
-    border: 1px solid #000;
+    border: 3px solid #000;
 }
 
 .player-avatar:hover {
@@ -82,7 +82,7 @@ body {
 }
 
 .player-name {
-    min-width: 20px;
+    min-width: 51px;
     max-width: 150px;
     max-height: 20px;
 }
