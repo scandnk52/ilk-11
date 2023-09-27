@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İLK 11 - Kadro Kur</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/formations.js"></script>
+    <script defer src="./js/html2canvas.min.js"></script>
+    <script defer src="./js/app.js"></script>
+</head>
+<body>
+    <div class="options">
+        <h1>İLK 11 - Kadro Kur</h1>
+        <input class="download" type="button" value="KADROYU İNDİR">
+        <div class="hide-teams">
+            <div class="hide-team">
+                <input class="checkbox" id="hide1" type="checkbox">
+                <label for="hide1">
+                    1. Takımı
+                    <span>Aç</span>
+                    <span>Kapat</span>
+                </label>
+            </div>
+            <div class="hide-team">
+                <input class="checkbox" id="hide2" type="checkbox">
+                <label for="hide2">
+                    2. Takımı
+                    <span>Aç</span>
+                    <span>Kapat</span>
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="teams">
+        <div id="team1" class="field top">
+            <div class="players">
+            </div>
+            <div class="team-details">
+                <div class="team">
+                    <img class="team-logo" src="./img/team.png">
+                    <span class="team-name" spellcheck="false" contenteditable="true">Takım 1</span>
+                </div>
+                <select class="formation"></select>
+            </div>
+        </div>
+        <div id="team2" class="field">
+            <div class="players">
+            </div>
+            <div class="team-details">
+                <div class="team">
+                    <img class="team-logo" src="./img/team.png">
+                    <span class="team-name" spellcheck="false" contenteditable="true">Takım 2</span>
+                </div>
+                <select class="formation"></select>
+            </div>
+        </div>
+    </div>
+    <div class="footer">Made by <b>Override</b></div>
+</body>
+</html> 

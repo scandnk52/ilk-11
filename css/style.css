@@ -1,0 +1,202 @@
+body {
+    background-color: #181818;
+    color: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 15px;
+    user-select: none;
+    margin: 0;
+}
+
+.teams {
+    width: 100%;
+}
+
+.field {
+    width: 1000px;
+    height: 796px;
+    background-image: url('../img/field.png');
+    background-size: cover;
+    position: relative;
+    margin: 0 auto;
+}
+
+.top {
+    transform: rotate(180deg);
+}
+
+.top > .players > *, .top > .team-details {
+    transform: rotate(180deg);
+}
+
+.team-details {
+    position: absolute;
+    padding: 8px 0;
+    width: 100%;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    color: #ffffff;
+}
+
+.team {
+    margin-left: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.team-logo {
+    width: 25px;
+}
+
+.team-name {
+    margin-left: 10px;
+}
+
+.formation {
+    margin-right: 40px;
+    color: #ffffff;
+    background-color: transparent;
+    border: none;
+}
+
+.formation option {
+    color: #000000;
+}
+
+.player {
+    position: absolute;
+    text-align: center;
+}
+
+.player-avatar {
+    width: 50px;
+    height: 50px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    padding: 3px;
+    border: 1px solid #000;
+}
+
+.player-avatar:hover {
+    background-color: black;
+}
+
+.player-name {
+    min-width: 20px;
+    max-width: 150px;
+    max-height: 20px;
+}
+
+.player-name, .player-number {
+    display: inline-block;
+    text-overflow: hidden;
+    overflow: hidden;
+}
+
+.player-number {
+    font-weight: bold;
+    margin-right: 5px;
+    max-height: 20px;
+    max-width: 20px;
+    min-width: 10px;
+}
+
+.player-details {
+    display: flex;
+    align-items: center;
+    background-color: #01240c;
+    color: #ffffff;
+    border-radius: 30px;
+    padding: 3px 8px;
+    border: 1px solid #000;
+}
+
+optgroup {
+    color: #000000;
+}
+
+.checkbox {
+    display: none;
+}
+
+label span {
+    display: none;
+}
+
+label {
+    cursor: pointer;
+}
+
+.checkbox:checked + label > span:nth-child(1) {
+    display: inline;
+}
+
+.checkbox:checked + label > span:nth-child(2) {
+    display: none;
+}
+
+.checkbox + label > span:nth-child(2) {
+    display: inline;
+}
+
+img {
+    cursor: pointer;
+}
+
+.team-logo {
+    border: 2px solid transparent;
+}
+
+.team-logo:hover {
+    border-color: #ccc;
+}
+
+.options {
+    padding: 20px 0;
+    align-items: center;
+    text-align: center;
+}
+
+.hide-teams {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hide-team {
+    padding: 5px 0;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.hide-team:hover {
+    opacity: 0.6;
+}
+
+.hide-team:nth-child(1) {
+    margin-right: 20px;
+}
+
+.download {
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: 1px solid #0b9106;
+    background-color: #07ce07;
+    color: #181818;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.download:hover {
+    opacity: 0.8;
+}
+
+.hide {
+    display: none;
+}
+
+.footer {
+    text-align: center;
+    padding: 20px 0;
+}
