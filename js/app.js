@@ -1,5 +1,5 @@
-const fieldWidth = document.querySelector(".field").offsetWidth;
-const fieldHeight = document.querySelector(".field").offsetHeight;
+let fieldWidth = document.querySelector(".field").offsetWidth;
+let fieldHeight = document.querySelector(".field").offsetHeight;
 const parcel = 6;
 
 const team1 = document.querySelector("#team1");
@@ -27,10 +27,12 @@ function buildTeam(team) {
     for (let i = 0; i < formations[formation[0]].formations[formation[1]].lineup.length; i++) {
         playersElement.innerHTML += `
         <div data-id="${i}" class="player">
-            <img class="player-avatar" src="./img/avatar.png">
+            <div class="player-avatar">
+                <img class="avatar" src="./img/avatar.png">
+            </div>
             <div class="player-details">
-                <span class="player-number" spellcheck="false" onkeydown="if (event.key === 'Backspace') {return;} else if(isNaN(event.key) || this.innerText.length > 1){event.preventDefault();}" contenteditable="true">${i + 1}</span>
-                <span class="player-name" spellcheck="false" contenteditable="true">Oyuncu</span>
+                <input class="player-number" name="player-number" type="number" oninput="if (this.value.length > 2) this.value = this.value.slice(0,2)" value="${i + 1}">
+                <input class="player-name" name="player-name" oninput="this.style.width = this.value.length + 'ch'" value="Oyuncu">
             </div>
         </div>
         `
@@ -68,9 +70,6 @@ document.addEventListener('focusout', function(e) {
     if (e.target && e.target.className == "player-name" && e.target.innerText == "") {
         e.target.innerText = "Oyuncu";
     }
-    else if (e.target && e.target.className == "player-number" && e.target.innerText == "") {
-        e.target.innerText = "-";
-    }
     lineUp(team1);
     lineUp(team2);
 });
@@ -79,9 +78,6 @@ document.addEventListener('focusin', function(e) {
     if (e.target && e.target.className == "player-name" && e.target.innerText == "Oyuncu") {
         e.target.innerText = "";
         e.target.focus();
-    }
-    else if (e.target && e.target.className == "player-number" && e.target.innerText === "-") {
-        e.target.innerText = "";
     }
 });
 
@@ -137,9 +133,27 @@ document.addEventListener('click', function(e) {
 
 downloadButton.addEventListener('click', function() {
     const teams = document.querySelector('.teams');
-    html2canvas(document.querySelector('.teams'), {width: teams.offsetWidth, height: teams.offsetHeight}).then((canvas) => {
+
+    var cols = document.getElementsByClassName('player-details');
+    for(i = 0; i < cols.length; i++) {
+      cols[i].style.padding = "3px 8px 6px 8px";
+    }
+
+    html2canvas(teams, {width: teams.offsetWidth, height: teams.offsetHeight}).then((canvas) => {
         window.open().document.write('<img src="' + canvas.toDataURL() + '" />');
     });
+
+    for(i = 0; i < cols.length; i++) {
+        cols[i].style.padding = "3px 8px";
+    }
+});
+
+window.addEventListener('resize', function() {
+    fieldWidth = document.querySelector(".field").offsetWidth;
+    fieldHeight = document.querySelector(".field").offsetHeight;
+
+    lineUp(team1);
+    lineUp(team2);
 });
 
 document.addEventListener('DOMContentLoaded', function() {
