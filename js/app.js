@@ -67,17 +67,16 @@ function createFormations() {
 }
 
 document.addEventListener('focusout', function(e) {
-    if (e.target && e.target.className == "player-name" && e.target.innerText == "") {
-        e.target.innerText = "Oyuncu";
+    if (e.target && e.target.className == "player-name" && e.target.value == "") {
+        e.target.value = "Oyuncu";
     }
     lineUp(team1);
     lineUp(team2);
 });
 
 document.addEventListener('focusin', function(e) {
-    if (e.target && e.target.className == "player-name" && e.target.innerText == "Oyuncu") {
-        e.target.innerText = "";
-        e.target.focus();
+    if (e.target && e.target.className == "player-name" && e.target.value == "Oyuncu") {
+        e.target.value = "";
     }
 });
 
