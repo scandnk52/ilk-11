@@ -57,6 +57,7 @@ body {
     color: #ffffff;
     background-color: transparent;
     border: none;
+    text-align: right;
 }
 
 .formation option {
