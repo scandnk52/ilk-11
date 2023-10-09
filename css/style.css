@@ -4,18 +4,18 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 15px;
     user-select: none;
-    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .teams {
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, 0);
 }
 
 .field {
-    width: 880px;
-    height: 700px;
+    width: 878px;
+    height: 703px;
     background-image: url('../img/field.png');
     background-size: cover;
     position: relative;
@@ -221,8 +221,8 @@ img {
 
 
     .field {
-        width: 675px;
-        height: 537px;
+        width: 637px;
+        height: 510px;
     }
 }
 
