@@ -1,7 +1,7 @@
 const formations = [
     {
         name: "Normal Dizilişler",
-        formations: [
+        lineups: [
             {
                 name: "4-2-3-1",
                 lineup: [
@@ -358,7 +358,7 @@ const formations = [
     },
     {
         name: "Halı Saha",
-        formations: [
+        lineups: [
             {
                 name: "5vs5",
                 lineup: [
