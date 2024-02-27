@@ -47,37 +47,6 @@ body {
     transition: 0s all !important;
 }
 
-/* LOADER */
-
-.loader {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: none;
-}
-
-.spinner {
-    width: var(--spinner-width);
-    height: var(--spinner-width);
-    border: 5px solid transparent;
-    border-bottom-color: var(--color);
-    border-radius: 50%;
-    display: inline-block;
-    box-sizing: border-box;
-    animation: spinner var(--duration) linear infinite;
-}
-
-@keyframes spinner {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-
-} 
-
 /* APP */
 
 #app {

@@ -1,7 +1,7 @@
 class App {
 
     appName = "İLK 11";
-    version = "v3.0";
+    version = "v3.1";
     images = "./assets/images/";
 
     avatar = this.images+"avatar.png";

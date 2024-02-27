@@ -5,15 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="icon" href="./assets/images/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="/assets/images/pwa/icon-192x192.png">
+    <link rel="manifest" href="manifest.json">
     <title>İLK 11 - Kadro Kur</title>
     <link rel="stylesheet" href="./assets/styles/main.css">
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script defer src="./assets/scripts/formations.js"></script>
     <script defer src="./assets/scripts/app.js"></script>
     <script defer src="./assets/scripts/main.js"></script>
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="İLK 11">
+    <meta name="msapplication-TileImage" content="/assets/images/pwa/icon-192x192.png">
+    <meta name="msapplication-TileColor" content="#181818">
+    <meta name="theme-color" content="#181818">
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function () {
+            navigator.serviceWorker.register('service-worker.js').then(function (registration) {
+            console.log('Registered!');
+            }, function (err) {
+            console.log('ServiceWorker registration failed: ', err);
+            }).catch(function (err) {
+            console.log(err);
+            });
+            });
+        } else {
+            console.log('service worker is not supported');
+        }
+    </script>
 </head>
-<body class="no-page">
-    <div id="loader" class="loader"><div class="spinner"></div></div>
+<body>
     <div id="app"></div>
 </body>
 </html>
