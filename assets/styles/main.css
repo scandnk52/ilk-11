@@ -345,6 +345,28 @@ body {
     font-size: var(--app-name-size);
 }
 
+.changelog {
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.version {
+    list-style-type: disc;
+    list-style-position: inside;
+    padding: 10px 0 10px 15px;
+    margin-left: 10px;
+    border-bottom: 1px solid;
+}
+
+.version h3 {
+    font-size: 1.3em;
+    padding-bottom: 10px;
+}
+
+.version li {
+    padding-bottom: 5px;
+}
+
 /* INPUT */
 
 input[type=text], input[type=number] {
@@ -538,6 +560,8 @@ input[type=text]:focus, input[type=number]:focus {
     padding: var(--input-padding);
     border-radius: var(--radius);
 }
+
+
 
 /* MEDIA QUERIES */
 
