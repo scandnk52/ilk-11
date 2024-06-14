@@ -153,6 +153,12 @@ body {
 
 .player-drag {
     outline: var(--player-padding) dashed var(--background-color);
+    transform: scale(1.2);
+    transition: 0.1s all;
+}
+
+.player-dragging {
+    opacity: 0.01;
 }
 
 .player-touch {
@@ -210,12 +216,10 @@ body {
 @keyframes playerAnimation {
 	0% {
         opacity: 0;
-        padding-top: var(--margin);
 	}
 
     100% {
         opacity: 1;
-        padding-top: 0;
     }
 }
 
@@ -318,7 +322,7 @@ body {
     width: var(--modal-circle-button-width);
     height: var(--modal-circle-button-width);
     padding: 0;
-    border-radius: 50%;
+    line-height: 0;
     border: none;
 }
 

@@ -1,6 +1,6 @@
 class App {
   appName = "İLK 11";
-  version = "v3.2";
+  version = "v3.3";
   images = "./assets/images/";
 
   avatar = this.images + "avatar.png";
@@ -26,6 +26,13 @@ class App {
   ];
 
   changeLog = [
+    {
+      v: "v3.3",
+      logs: [
+        "Oyuncu sürükle/bırak özelliği düzenlendi.",
+        "Menüdeki ufak hatalar düzeltildi.",
+      ],
+    },
     {
       v: "v3.2",
       logs: ["Yenilikler menüsü eklendi."],
@@ -110,7 +117,7 @@ class App {
     const newsFab = document.createElement("button");
     newsFab.classList.add("floating-action");
     newsFab.setAttribute("tooltip", "Yenilikler");
-    newsFab.innerHTML = "&#129534;";
+    newsFab.innerHTML = "📰";
 
     fabContainer.append(newsFab);
 
@@ -212,10 +219,6 @@ class App {
     checkboxRememberPlayers.element.onchange = function (e) {
       e.preventDefault();
       this.rememberPlayers = e.target.checked;
-    }.bind(this);
-
-    editForm.onsubmit = function (e) {
-      e.preventDefault();
     }.bind(this);
 
     editForm.onsubmit = function (e) {
@@ -363,19 +366,19 @@ class App {
   }
 
   resizePitch() {
-    document.body.classList.add("no-animation");
-
     setTimeout(
       function () {
+        document.body.classList.add("no-animation");
+
         this.width = this.pitch.offsetWidth;
 
         this.lineUpTeam(this.teams[0]);
         this.lineUpTeam(this.teams[1]);
-      }.bind(this),
-      500
-    );
 
-    document.body.classList.remove("no-animation");
+        document.body.classList.remove("no-animation");
+      }.bind(this),
+      200
+    );
   }
 
   buildFormations(team) {
@@ -522,6 +525,7 @@ class App {
     player.ondragstart = function (e) {
       e.dataTransfer.setData("text/html", e.target.innerHTML);
       this.drag = e.target;
+      player.classList.add("player-dragging");
     }.bind(this);
 
     player.ondragover = function (e) {
@@ -530,12 +534,17 @@ class App {
 
     player.ondragover = function (e) {
       e.preventDefault();
-      player.classList.add("player-drag");
+      if (this.drag !== e.currentTarget) player.classList.add("player-drag");
     }.bind(this);
 
     player.ondragleave = function (e) {
       e.preventDefault();
       player.classList.remove("player-drag");
+    }.bind(this);
+
+    player.ondragend = function (e) {
+      e.preventDefault();
+      player.classList.remove("player-dragging");
     }.bind(this);
 
     player.ondrop = function (e) {
@@ -562,6 +571,34 @@ class App {
       player.classList.add("player-touch");
       player.style.top = e.touches[0].pageY - player.offsetHeight / 2 + "px";
       player.style.left = e.touches[0].pageX - player.offsetWidth / 2 + "px";
+
+      const X = e.changedTouches[0].clientX;
+      const Y = e.changedTouches[0].clientY;
+
+      const players = document.querySelectorAll(".player");
+
+      for (let i = 0; i < players.length; i++) {
+        const rect = players[i].getBoundingClientRect();
+
+        const left = rect.x;
+        const offsetWidth = players[i].offsetWidth;
+
+        const top = rect.y;
+        const offsetHeight = players[i].offsetHeight;
+
+        players[i].classList.remove("player-drag");
+
+        if (
+          X > left &&
+          X < left + offsetWidth &&
+          Y > top &&
+          Y < top + offsetHeight
+        ) {
+          if (players[i] !== player) {
+            players[i].classList.add("player-drag");
+          }
+        }
+      }
     }.bind(this);
 
     player.ontouchend = function (e) {
@@ -670,6 +707,8 @@ class App {
 
     let hasHide = false;
 
+    document.body.classList.add("no-animation");
+
     this.teams.map(function (otherTeam) {
       if (otherTeam.hide) {
         hasHide = true;
@@ -707,6 +746,8 @@ class App {
         players[i].offsetWidth / 2 +
         "px";
     }
+
+    document.body.classList.remove("no-animation");
   }
 
   textInput(text, value) {
@@ -937,9 +978,9 @@ class App {
   submitModal(element, e) {
     e.preventDefault();
 
-    if (typeof element.submit === "function") {
+    try {
       element.requestSubmit();
-    }
+    } catch (e) {}
 
     this.closeModal();
   }
